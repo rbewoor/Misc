@@ -25,7 +25,7 @@ Description: Takes list of files as input. Keeps removing duplicates in each fil
 7) Script Name: testTTS11_with429503_parallelProc_charCountTrack-GITHUB.ipynb
 NOTE: Works only for a PAID subscription for MS Azure - TTS service which allows up to 20 concurrent processes.
 Description: Parallel processing to convert input sentences to wav files. Expects an input CSV file with the sentences in some row. Outputs set of files in the Deepspeech training CSV file format (path, wavFileSize, transcript). The converted wav files in required format of PCM 16kHz 16-bit Mono.
-Important inputs to edit before running:
+IMPORTANT INPUT VARIABLES TO EDIT BEFORE RUNNING:
 logFilenameWithPath::: Location and name of the logging file.
 inFilePath::: Location of the input file.
 inFileName::: Input file name.
@@ -49,3 +49,35 @@ Description: Check that only valid alphabet characters are present in the traini
 Important inputs to edit before running:
 validCharsString::: Strng containing all the valid characters for Deespeech training.
 colToCheck::: The column which contains the sentences.
+
+9) Script Name: testTTS13-GITHUB.ipynb
+Note: Will work on Free version of Azure subscription key. No parallel processing as only 1 concurrent process allowed.
+Description: NON-parallel processing to convert input sentences to wav files. Expects an input CSV file with the sentences in some row. Outputs two CSV files of which one is the Deepspeech training CSV file format (path, wavFileSize, transcript). The converted wav files in required format of PCM 16kHz 16-bit Mono.
+IMPORTANT INPUT VARIABLES TO EDIT BEFORE RUNNING:
+logFilenameWithPath::: Location and name of the logging file.
+inFilePath::: Location of the input file.
+inFileName::: Input file name.
+colsToReadIn::: Specify the column which contains the sentences. Only this column will be read in and the wav files created based on this.
+rowsToRead::: Number of rows to process from input file.
+rowsToSkip::: Number of rows to skip from input file.
+outWavFilesPath::: Folder to save the output wav files.
+outFilePath::: Folder to save the output CSV files.
+outFileName4Deepspeech::: Filename for the Deespeech training file (WITH the .csv extension).
+outFileNameFullData::: Filename for the output file which also has the voice type (WITH the .csv extension).
+apiCallThrottleLimit::: Number of API calls by each worker after which to sleep for some time -- set as 20.
+apiCallThrottleSleepTime::: Time in seconds for which to sleep to throttle speed -- set as 60 seconds.
+accessTokenRecheckInSeconds::: Number of seconds after which each worker should regerenate its Access token automatically.
+statusRowPrintFreq::: How ofter to print the sentence being processed as status message. First sentence is always shown though.
+voiceTypeShortNames::: List of the short name codes for the Voice Types to be used for conversion.
+
+10) Script Name: testTTS13-GITHUB.PY
+Note: Will work on Free version of Azure subscription key. No parallel processing as only 1 concurrent process allowed.
+Description: NON-parallel processing to convert input sentences to wav files. Expects an input CSV file with the sentences in some row. Outputs two CSV files of which one is the Deepspeech training CSV file format (path, wavFileSize, transcript). The converted wav files in required format of PCM 16kHz 16-bit Mono.
+COMMAND LINE VERSION OF THE JUPYTER NOTEBOOK.
+Expects exactly 13 command line args (including script name) in this format:
+python </script/folder/path/<programName.py> </input/file/with/path/filename.csv> <rowsToRead> <rowsToSkip> </output/file/path/wavsHere/> </output/file/path/csvs/> </outputFileNameForDeepspeech.csv> </outputFileNameNOTForDeepspeech.csv> <apiCallThrottleLimit> <apiCallThrottleSleepTime in Seconds> <statusRowPrintFreq> <fileNumber> </path/for/logFile/logFileName.log>
+  
+  For example: to process 5 rows, skipping first 50 rows, API call limit=20, sleep for 60 seconds, print frequency=2, starting file number=51, one would run as below:
+  
+  python testTTS13.py /home/rohit/dpspTraining/data/azure/pdfExtraction/System_800xA_Summary.pdf_extractedText_4.csv 5 50 /home/rohit/dpspTraining/data/azure/pdfExtraction/convertedWavs_13voice_51_55/ /home/rohit/dpspTraining/data/azure/pdfExtraction/convertedWavsCsvFile_13voice_51_55/ System_800xA_Summary.pdf_extractedText_4_forDS.csv System_800xA_Summary.pdf_extractedText_4_NOT_forDS.csv 20 60 2 51 /home/rohit/dpspTraining/data/azure/pdfExtraction/convertedWavsCsvFile_13voice_51_55/TestTTS13_13voice_51_55.log
+

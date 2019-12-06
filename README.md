@@ -109,4 +109,8 @@ python testTTS13.py /home/rohit/dpspTraining/data/azure/pdfExtraction/System_800
 11) Script Name: splitFileBlindlyMultiple1.py
 
 Description: Script to split any input file into equal sized output files (except possibly last file).
-Expects exactly 5 Command line arguments (including the script name). Each output file has same name as input file appended by the starting+ending row numbers. Logging implemented. 
+Each output file has same name as input file appended by the starting+ending row numbers. Logging implemented. E.g. input file has 1001 rows with header, and the number of DATA rows required in output = 300; so here, 4 output files with names as: file_1_300, file_301_600, file_601_900, file_901_1000.
+
+Expects exactly 5 Command line arguments (including the script name): python </script/path/programName.py> <path/with/inputFilename.csv> <rows per output file> <H or NH> </path/for/logFile/logFileName.log>
+
+For above example one would run as: python </script/path/programName.py> <path/with/inputFilename.csv> 300 H </path/for/logFile/logFileName.log>

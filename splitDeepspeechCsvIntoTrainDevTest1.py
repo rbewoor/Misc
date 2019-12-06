@@ -127,10 +127,10 @@ def checkRatioValues(_ratioFlag, _inRatioStr, _extractedRatioList, _lenInputData
 #
 print(f"\n\n")
 #
-## check all the command line arguments and assign variables, 5 expected including scriptname
+## check all the command line arguments and assign variables, 6 expected including scriptname
 if len(sys.argv) != 6:
     print(f"\n\nERROR: number of command line arguments entered = {len(sys.argv)}")
-    print(f"ERROR: Including scriptname, expected exactly 5 command line arguments in one of these two formats:")
+    print(f"ERROR: Including scriptname, expected exactly 6 command line arguments in one of these two formats:")
     print(f'\npython </script/path/programName.py> <path/with/inputFilename.csv> <N> <"35 18 7"> </path/for/logFile/logFileName.log> <S or NS>\n')
     print(f"        OR")
     print(f'\npython </script/path/programName.py> <path/with/inputFilename.csv> <P> <"65.0 25.0 10.0"> </path/for/logFile/logFileName.log>  <S or NS>\n')

@@ -12,7 +12,7 @@ Description: Script to update a CSV files particular columns cells, by replacing
 3) Script Name: splitDeepspeechCsvIntoTrainDevTest1.py
 
 Description: Script to split the Deepspeech CSV files into 3 files for TRAIN DEV and TEST.
-Expects exactly 6 Command line arguments (including the script name). Specifiy using absolute numbers or percentages. Specify whether or not to shuffle before splitting. Will not work if the split ratio is such that any of the output files will have not data due to too litte data or split ratio too small. Logging implemented.
+Expects exactly 6 Command line arguments (including the script name). Specifiy using absolute numbers or percentages. Specify whether or not to shuffle before splitting. Will not work if the split ratio is such that any of the output files will have not data due to too litte data or split ratio too small. Logging implemented. Each output file has same name as input file appended by underscore and TRAIN or DEV or TEST.
 
 4) Script Name: extractCharsFromCsvsMakeAlphabetFile3.py
 
@@ -105,3 +105,8 @@ For example: to process 5 rows, skipping first 50 rows, API call limit=20, sleep
   
 python testTTS13.py /home/rohit/dpspTraining/data/azure/pdfExtraction/System_800xA_Summary.pdf_extractedText_4.csv 5 50 /home/rohit/dpspTraining/data/azure/pdfExtraction/convertedWavs_13voice_51_55/ /home/rohit/dpspTraining/data/azure/pdfExtraction/convertedWavsCsvFile_13voice_51_55/ System_800xA_Summary.pdf_extractedText_4_forDS.csv System_800xA_Summary.pdf_extractedText_4_NOT_forDS.csv 20 60 2 51 /home/rohit/dpspTraining/data/azure/pdfExtraction/convertedWavsCsvFile_13voice_51_55/TestTTS13_13voice_51_55.log
 
+
+11) Script Name: splitFileBlindlyMultiple1.py
+
+Description: Script to split any input file into equal sized output files (except possibly last file).
+Expects exactly 5 Command line arguments (including the script name). Each output file has same name as input file appended by the starting+ending row numbers. Logging implemented. 

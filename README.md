@@ -26,9 +26,11 @@ NOTE: Adapted from the Deespeech repo scripts.
 
 Description: From the CSV input file or files, create a the vocabulary file. As usual expected to have the three columns with the third column being the transcripts. Will process the contents of this third column. Removes any duplicates. Expects 4 command line args (including script name). Input files can be specified in one of three ways. Logging implemented.
 
-6) Script Name: concatFilesRemoveDuplicates2.ipynb
+6) Script Name: concatFilesRemoveDuplicates2.py
 
-Description: Takes list of files as input. Keeps removing duplicates in each file and appending into an output dataframe. Finally removes duplicates on this output dataframe and writes output file. Shows count of lines at each stage.
+Description: Concatenate the input files, remove duplicates and write output file. Logic works by reading in each file, deduplicates it, then appends to output dataframe. Finally deduplicates the output dataframe again and writes the output file.
+
+NOTE: Uses pandas. So choose a Separator character carefully.
 
 7) Script Name: testTTS11_with429503_parallelProc_charCountTrack-GITHUB.ipynb
 

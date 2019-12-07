@@ -7,7 +7,7 @@
 ###  
 ###  Use case for Deespeech: combine different vocabulary files.
 ###
-###  NOTE: Uses pandas. 
+###  NOTE: Uses pandas. So choose a Separator character carefully.
 ###
 ###  Expects exactly 6 Command line arguments (including the script name) for both cases.
 ###  0)  ScriptName.py

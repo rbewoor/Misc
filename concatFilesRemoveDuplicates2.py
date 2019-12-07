@@ -2,6 +2,8 @@
 #######################################################################################
 ###
 ###  Concatenate the input files, remove duplicates and write output file.
+###      Logic works by reading in each file, deduplicates it, then appends to output dataframe.
+###      Finally deduplicates the output dataframe again and writes the output file.
 ###  
 ###  Use case for Deespeech: combine different vocabulary files.
 ###
@@ -20,7 +22,7 @@
 ###  python </script/path/programName.py> </path/for/output/outputFilename.ext> </path/for/logFile/logFileName.log>
 ###                           3                                        4
 ###         <write H or NH as Header Indicator> <"space separated individual files in double quotes">
-###                           5                                        4
+###                           5
 ###         <"separator character in double quotes">
 ###
 ### example:

@@ -116,3 +116,5 @@ Each output file has same name as input file appended by the starting+ending row
 Expects exactly 5 Command line arguments (including the script name): python </script/path/programName.py> <path/with/inputFilename.csv> <rows per output file> <H or NH> </path/for/logFile/logFileName.log>
 
 For above example one would run as: python </script/path/programName.py> <path/with/inputFilename.csv> 300 H </path/for/logFile/logFileName.log>
+
+NOTE: Does not use pandas and only basic python read/write commands. So input file can be any type of file.

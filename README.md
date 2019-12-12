@@ -121,5 +121,7 @@ NOTE: Does not use pandas and only basic python read/write commands. So input fi
 
 
 12) Script Name: checkAlphaCharacters4mVocab3.py
+Description: Script to use a vocabular file (with only the transcripts without any header) and create the alphabet file for Deespeech.
+No logging. Creates a set of all the characters encountered and writes them to the output file in the format required.
 
-PENDING TO FILL
+Expects exactly 3 Command line arguments (including the script name): python checkAlphaCharacters4mVocab3.py </input/vocab/file/with/path/vocabFilename.txt> </output/alpha/file/with/path/AlphaFilename.txt>

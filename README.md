@@ -125,3 +125,25 @@ Description: Script to use a vocabular file (with only the transcripts without a
 No logging. Creates a set of all the characters encountered and writes them to the output file in the format required.
 
 Expects exactly 3 Command line arguments (including the script name): python checkAlphaCharacters4mVocab3.py </input/vocab/file/with/path/vocabFilename.txt> </output/alpha/file/with/path/AlphaFilename.txt>
+
+
+13) Script Name: deespeechTesting_makeCommands_getOutputs1.ipynb
+Description: For testing a saved Deespeech model by giving it audio files for inference.
+
+Section 1 is used to generate the inference commands and write them to an output file. For each input audio file two commands are created: on for without language model and one for with language model. Script will look for all the audio .wav files that are in the folders specified in the wavLocsDict variable and use them all for testing. Even if you are not using a language model, specify something as the command has to be generated. But in section 2, you can select which type of commands to actuall fire. E.g. you may code it as "--lm GARBAGE VALUE" and "--trie GARBAGE VALUE".
+Section 2 is used to read in a file created by Section 1. It fires each command and captures the response. The audio file path and the corresponding inference are written to an output file.
+No logging implemented.
+
+NOTE: Logic expects the --audio parameter to be in the final position for each command.
+
+IMPORTANT INPUT VARIABLES TO EDIT BEFORE RUNNING:
+
+For SECTION 1:
+opFileLocationS1  and opFileNameS1 ::: Location and name of the output file to create.
+model_skel, alpha_skel, lm_skel, trie_skel::: Edit these to point to the model, alphabet file and language model. DO NOT edit the cmd_skel and audio_skel variables.
+wavLocsDict::: Specify one or more folders where the audio files to be tested are. Use a unique key for each entry.
+
+For SECTION 2:
+ipFileLocationS2 and ipFileNameS2::: Location and name of the input file from where to pick up the commands.
+opFileLocationS2 and opFileNameS2::: Location and name of the output file to create for the audio file + inference result.
+flagRun_NOlm_cmds and flagRun_WITHlm_cmds::: Flags for the firing of WITHOUT language model and WITH language model commands respectively.
